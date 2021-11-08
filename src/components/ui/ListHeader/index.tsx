@@ -11,11 +11,11 @@ interface Props {
 
 const ListHeader = ({ currentPage }: Props) => (
   <Mui.Grid>
-    <NavigationButton selected={currentPage === "Repositories"}>
-      <Link to="/">Repositories</Link>
+    <NavigationButton to="/" selected={currentPage === "Repositories"}>
+      Repositories
     </NavigationButton>
-    <NavigationButton selected={currentPage === "Developers"}>
-      <Link to="/developers">Developers</Link>
+    <NavigationButton to="/developers" selected={currentPage === "Developers"}>
+      Developers
     </NavigationButton>
   </Mui.Grid>
 );
