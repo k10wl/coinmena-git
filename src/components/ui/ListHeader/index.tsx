@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 
 import * as Mui from "@mui/material";
 
+import NavigationButton from "./NavigationButton";
+
 interface Props {
   currentPage: "Repositories" | "Developers";
 }
 
 const ListHeader = ({ currentPage }: Props) => (
   <Mui.Grid>
-    <Mui.Button component={Link} to="/">
-      Repositories {currentPage === "Repositories" && "←"}
-    </Mui.Button>
-    <Mui.Button component={Link} to="/developers">
-      {currentPage === "Developers" && "→"} Developers
-    </Mui.Button>
+    <NavigationButton selected={currentPage === "Repositories"}>
+      <Link to="/">Repositories</Link>
+    </NavigationButton>
+    <NavigationButton selected={currentPage === "Developers"}>
+      <Link to="/developers">Developers</Link>
+    </NavigationButton>
   </Mui.Grid>
 );
 
