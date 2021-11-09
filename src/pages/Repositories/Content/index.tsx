@@ -11,10 +11,14 @@ const Container = styled(Mui.Grid)`
   padding: 15px;
 `;
 
-const RepoIcon = styled.img`
+interface IconProps {
+  spacing?: number
+}
+
+const Icon = styled.img<IconProps>`
   width: 16px;
   height: 16px;
-  margin-right: 4px;
+  margin-right: ${(props) => props.spacing || 0}px;
 `;
 
 const RepoNameContainer = styled(Mui.Grid)`
@@ -108,33 +112,43 @@ const Content = ({ repositoryInfo }: Props) => {
       <Mui.Grid container justifyContent="space-between">
         <Mui.Grid item>
           <RepoNameContainer container alignItems="flex-end">
-            <RepoIcon src={Repository} alt="repository" />
+            <Icon spacing={4} src={Repository} alt="repository" />
             <a href={url}>
               {username} / {repositoryName}
             </a>
           </RepoNameContainer>
         </Mui.Grid>
         <Button>
-          <img src={Star} alt="star" /> Star
+          <Icon spacing={2} src={Star} alt="star" /> Star
         </Button>
       </Mui.Grid>
-      <RepoDetailsText>{description}</RepoDetailsText>
-      <Mui.Grid container>
+      <RepoDetailsText marginY="4px" fontSize="12px" fontFamily="Segoe UI">
+        {description}
+      </RepoDetailsText>
+      <Mui.Grid container marginTop="12px">
         <RepoDetail>
-          <RepoDetailsText>{language}</RepoDetailsText>
+          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+            {language}
+          </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
-          <img src={Star} alt="star" />
-          <RepoDetailsText>{totalStars}</RepoDetailsText>
+          <Icon spacing={2} src={Star} alt="star" />
+          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+            {totalStars}
+          </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
-          <img src={Fork} alt="fork" />
-          <RepoDetailsText>{forks}</RepoDetailsText>
+          <Icon spacing={2} src={Fork} alt="fork" />
+          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+            {forks}
+          </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Mui.Grid item>
             <Mui.Grid container>
-              <RepoDetailsText>Build by</RepoDetailsText>
+              <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+                Build by
+              </RepoDetailsText>
               {builtBy.map((user) => (
                 <BuildBy key={user.url} src={user.avatar} alt={user.username} />
               ))}
@@ -143,9 +157,9 @@ const Content = ({ repositoryInfo }: Props) => {
         </RepoDetail>
         <Mui.Grid item marginLeft="auto">
           <Mui.Grid container>
-            <img src={Star} alt="star" />
-            <RepoDetailsText>
-              {starsSince} stars {since}
+            <Icon spacing={2} src={Star} alt="star" />
+            <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+              {starsSince} stars today
             </RepoDetailsText>
           </Mui.Grid>
         </Mui.Grid>
