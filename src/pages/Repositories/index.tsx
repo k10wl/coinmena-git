@@ -1,9 +1,11 @@
 import React from "react";
 
+import BasePage from "@ui/BasePage";
+
 const Repositories = () => (
-  <div>
+  <BasePage>
     <h1>Repositories</h1>
-  </div>
+  </BasePage>
 );
 
 export default Repositories;
