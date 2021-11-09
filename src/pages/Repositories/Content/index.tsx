@@ -61,11 +61,12 @@ const Button = styled.button`
   }
 `;
 
-const BuildBy = styled.img`
+const AuthorAvatar = styled.img`
   border-radius: 50%;
   height: 20px;
   width: 20px;
   padding: 0 1px;
+  cursor: pointer;
 `;
 
 const RepoDetail = styled(Mui.Grid)`
@@ -110,30 +111,50 @@ const Content = ({ repositoryInfo }: RepositoryInterface) => {
       </RepoDetailsText>
       <Mui.Grid container marginTop="12px">
         <RepoDetail>
-          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText
+            lineHeight={1.3}
+            fontSize="12px"
+            fontFamily="Segoe UI"
+          >
             {language}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Icon spacing={2} src={Star} alt="star" />
-          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText
+            lineHeight={1.3}
+            fontSize="12px"
+            fontFamily="Segoe UI"
+          >
             {totalStars}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Icon spacing={2} src={Fork} alt="fork" />
-          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText
+            lineHeight={1.3}
+            fontSize="12px"
+            fontFamily="Segoe UI"
+          >
             {forks}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Mui.Grid item>
             <Mui.Grid container>
-              <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
+              <RepoDetailsText
+                lineHeight={1.3}
+                fontSize="12px"
+                fontFamily="Segoe UI"
+              >
                 Build by
               </RepoDetailsText>
               {builtBy.map((user) => (
-                <BuildBy key={user.url} src={user.avatar} alt={user.username} />
+                <AuthorAvatar
+                  key={user.url}
+                  src={user.avatar}
+                  alt={user.username}
+                />
               ))}
             </Mui.Grid>
           </Mui.Grid>
@@ -141,7 +162,11 @@ const Content = ({ repositoryInfo }: RepositoryInterface) => {
         <Mui.Grid item marginLeft="auto">
           <Mui.Grid container>
             <Icon spacing={2} src={Star} alt="star" />
-            <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
+            <RepoDetailsText
+              lineHeight={1.3}
+              fontSize="12px"
+              fontFamily="Segoe UI"
+            >
               {starsSince} stars today
             </RepoDetailsText>
           </Mui.Grid>
