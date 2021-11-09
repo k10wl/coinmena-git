@@ -7,6 +7,8 @@ import Fork from "@images/Fork.svg";
 import Star from "@images/Star.svg";
 import Repository from "@images/Repository.svg";
 
+import RepositoryInterface from "@/components/interface/repository";
+
 const Container = styled(Mui.Grid)`
   padding: 15px;
 `;
@@ -71,39 +73,16 @@ const RepoDetailsText = styled(Mui.Typography)`
   color: #8b949e;
 `;
 
-interface Props {
-  repositoryInfo: {
-    rank: number;
-    username: string;
-    repositoryName: string;
-    url: string;
-    description: string;
-    language: string;
-    languageColor: string;
-    totalStars: number;
-    forks: number;
-    starsSince: number;
-    since: string;
-    builtBy: {
-      username: string;
-      url: string;
-      avatar: string;
-    }[];
-  };
-}
-
-const Content = ({ repositoryInfo }: Props) => {
+const Content = ({ repositoryInfo }: RepositoryInterface) => {
   const {
     username,
     repositoryName,
     url,
     description,
     language,
-    languageColor,
     totalStars,
     forks,
     starsSince,
-    since,
     builtBy,
   } = repositoryInfo;
 
