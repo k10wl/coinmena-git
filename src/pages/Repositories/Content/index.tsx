@@ -11,10 +11,25 @@ const Container = styled(Mui.Grid)`
   padding: 15px;
 `;
 
-const RepoName = styled(Mui.Typography)`
-  color: #58a6ff;
+const RepoIcon = styled.img`
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+`;
+
+const RepoNameContainer = styled(Mui.Grid)`
+  cursor: pointer;
+  a {
+    color: #58a6ff;
+    font-family: Segoe UI;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+  }
   &:hover {
-    text-decoration: underline;
+    a {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -82,17 +97,12 @@ const Content = ({ repositoryInfo }: Props) => {
     <Container container flexDirection="column">
       <Mui.Grid container justifyContent="space-between">
         <Mui.Grid item>
-          <Mui.Grid container>
-            <img src={Repository} alt="repository" />
-            <RepoName
-              fontFamily="Segoe UI"
-              fontSize={20}
-              fontWeight={600}
-              onClick={() => (window.location.href = url)}
-            >
+          <RepoNameContainer container alignItems="flex-end">
+            <RepoIcon src={Repository} alt="repository" />
+            <a href={url}>
               {username} / {repositoryName}
-            </RepoName>
-          </Mui.Grid>
+            </a>
+          </RepoNameContainer>
         </Mui.Grid>
         <Button>
           <img src={Star} alt="star" /> Star
