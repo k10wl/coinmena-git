@@ -110,26 +110,26 @@ const Content = ({ repositoryInfo }: RepositoryInterface) => {
       </RepoDetailsText>
       <Mui.Grid container marginTop="12px">
         <RepoDetail>
-          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
             {language}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Icon spacing={2} src={Star} alt="star" />
-          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
             {totalStars}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Icon spacing={2} src={Fork} alt="fork" />
-          <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+          <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
             {forks}
           </RepoDetailsText>
         </RepoDetail>
         <RepoDetail>
           <Mui.Grid item>
             <Mui.Grid container>
-              <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+              <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
                 Build by
               </RepoDetailsText>
               {builtBy.map((user) => (
@@ -141,7 +141,7 @@ const Content = ({ repositoryInfo }: RepositoryInterface) => {
         <Mui.Grid item marginLeft="auto">
           <Mui.Grid container>
             <Icon spacing={2} src={Star} alt="star" />
-            <RepoDetailsText fontSize="12px" fontFamily="Segoe UI">
+            <RepoDetailsText lineHeight={1.3} fontSize="12px" fontFamily="Segoe UI">
               {starsSince} stars today
             </RepoDetailsText>
           </Mui.Grid>
