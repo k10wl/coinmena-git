@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from "./App";
+import Developers from "./pages/Developers";
+import Repositories from "./pages/Repositories";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Repositories />} />
+      <Route path="/developers" element={<Developers />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById("root")
 );
