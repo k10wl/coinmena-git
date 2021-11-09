@@ -14,7 +14,7 @@ const Container = styled(Mui.Grid)`
 `;
 
 interface IconProps {
-  spacing?: number
+  spacing?: number;
 }
 
 const Icon = styled.img<IconProps>`
@@ -54,6 +54,10 @@ const Button = styled.button`
   &:hover {
     background-color: #30363d;
     border-color: #8b949e;
+  }
+  &:active {
+    background-color: #282e33;
+    border-color: #6e7681;
   }
 `;
 
