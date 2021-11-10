@@ -1,9 +1,11 @@
 import React from "react";
 
+import BasePage from "@/components/ui/BasePage";
+
 const Developers = () => (
-  <div>
+  <BasePage>
     <h1>Developers</h1>
-  </div>
+  </BasePage>
 );
 
 export default Developers;

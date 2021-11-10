@@ -78,7 +78,11 @@ const RepoDetailsText = styled(Mui.Typography)`
   color: #8b949e;
 `;
 
-const Content = ({ repositoryInfo }: RepositoryInterface) => {
+interface Props {
+  repositoryInfo: RepositoryInterface;
+}
+
+const Content = ({ repositoryInfo }: Props) => {
   const {
     username,
     repositoryName,
