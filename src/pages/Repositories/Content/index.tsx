@@ -11,6 +11,7 @@ import RepositoryInterface from "@/components/interface/repository";
 
 const Container = styled(Mui.Grid)`
   padding: 15px;
+  border-bottom: 1px solid #21262d;
 `;
 
 interface IconProps {

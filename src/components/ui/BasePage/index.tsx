@@ -29,6 +29,7 @@ const Header = styled.div`
   border-bottom: 1px solid #30363d;
   text-align: center;
   width: 100%;
+  max-height: 123px;
   flex-shrink: 0;
 `;
 
@@ -51,7 +52,7 @@ const BasePage = ({ children }: Props) => {
   const { page, description } = useCurrentPage();
 
   return (
-    <Container container item alignItems="center">
+    <Container container item>
       <Header>
         <Mui.Typography
           fontSize={32}
