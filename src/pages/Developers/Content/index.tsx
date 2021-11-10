@@ -73,69 +73,84 @@ const RepoDescription = styled(Mui.Typography)`
   color: #8b949e;
 `;
 
+const RepoLink = styled.a`
+  color: #5198eb;
+  text-decoration: none;
+  font-family: Segoe UI;
+  font-weight: 600;
+  font-size: 16px;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 interface Props {
   developer: DevelopersInterface;
 }
 
-const Content = ({ developer }: Props) => (
-  <Container container id={developer.username}>
-    <Mui.Grid item xs={4}>
-      <Mui.Grid container>
-        <Ranking href={developer.url}>{developer.rank}</Ranking>
-        <ProfilePicture>
-          <a href={developer.url}>
-            <img src={developer.avatar} alt={developer.name} />
-          </a>
-        </ProfilePicture>
-        <Mui.Grid item>
-          <Mui.Grid container direction="column">
-            <ProfileName type="name" href={developer.url}>
-              {developer.name}
-            </ProfileName>
-            <ProfileName type="username" href={developer.url}>
-              {developer.username}
-            </ProfileName>
+const Content = ({ developer }: Props) => {
+  const { username, name, rank, url, popularRepository, avatar } = developer;
+
+  return (
+    <Container container id={username}>
+      <Mui.Grid item xs={4}>
+        <Mui.Grid container>
+          <Ranking href={url}>{rank}</Ranking>
+          <ProfilePicture>
+            <a href={url}>
+              <img src={avatar} alt={name} />
+            </a>
+          </ProfilePicture>
+          <Mui.Grid item>
+            <Mui.Grid container direction="column">
+              <ProfileName type="name" href={url}>
+                {name}
+              </ProfileName>
+              <ProfileName type="username" href={url}>
+                {username}
+              </ProfileName>
+            </Mui.Grid>
           </Mui.Grid>
         </Mui.Grid>
       </Mui.Grid>
-    </Mui.Grid>
-    <Mui.Grid item xs={8}>
-      <Mui.Grid container>
-        <Mui.Grid item sm={9}>
-          <Mui.Grid container>
-            <Icon spacing={5} src={PopularRepo} alt="" />
+      <Mui.Grid item xs={8}>
+        <Mui.Grid container>
+          <Mui.Grid item sm={9}>
+            <Mui.Grid container>
+              <Icon spacing={5} src={PopularRepo} alt="" />
+              <RepoDescription
+                marginY="5px"
+                fontSize="12px"
+                fontWeight={400}
+                fontFamily="Segoe UI"
+              >
+                POPULAR REPO
+              </RepoDescription>
+            </Mui.Grid>
+            <Mui.Grid>
+              <RepoLink href={popularRepository.url}>
+                <Icon spacing={5} src={Repository} alt="" />{" "}
+                {popularRepository.repositoryName}
+              </RepoLink>
+            </Mui.Grid>
             <RepoDescription
               marginY="5px"
               fontSize="12px"
               fontWeight={400}
               fontFamily="Segoe UI"
             >
-              POPULAR REPO
+              {popularRepository.description}
             </RepoDescription>
           </Mui.Grid>
-          <Mui.Grid>
-            <a href={developer.popularRepository.url}>
-              <Icon spacing={5} src={Repository} alt="" />{" "}
-              {developer.popularRepository.repositoryName}
-            </a>
-          </Mui.Grid>
-          <RepoDescription
-            marginY="5px"
-            fontSize="12px"
-            fontWeight={400}
-            fontFamily="Segoe UI"
-          >
-            {developer.popularRepository.description}
-          </RepoDescription>
-        </Mui.Grid>
-        <Mui.Grid item xs={6} sm={3}>
-          <Mui.Grid container justifyContent="flex-end">
-            <ListButton>Follow</ListButton>
+          <Mui.Grid item xs={12} sm={3}>
+            <Mui.Grid container justifyContent="flex-end">
+              <ListButton>Follow</ListButton>
+            </Mui.Grid>
           </Mui.Grid>
         </Mui.Grid>
       </Mui.Grid>
-    </Mui.Grid>
-  </Container>
-);
+    </Container>
+  );
+};
 
 export default Content;
