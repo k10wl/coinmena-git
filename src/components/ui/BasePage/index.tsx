@@ -73,7 +73,7 @@ const BasePage = ({ children }: Props) => {
       </Header>
 
       <Mui.Grid container justifyContent="center" marginY={3}>
-        <List item xs={12} sm={11} md={10} lg={8} xl={6}>
+        <List item xs={12} sm={11} lg={10} xl={9}>
           <ListHeader page={page} />
           <ListContainer>{children}</ListContainer>
         </List>
