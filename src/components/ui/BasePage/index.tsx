@@ -15,6 +15,7 @@ const Container = styled(Mui.Grid)`
   }
   width: 100vw;
   height: 100vh;
+  overflow: auto;
   *,
   *:before,
   *:after {
@@ -29,12 +30,12 @@ const Header = styled.div`
   text-align: center;
   width: 100%;
   flex-shrink: 0;
-  margin-bottom: 25px;
 `;
 
 const List = styled(Mui.Grid)`
   border-radius: 7px;
   border: 1px solid #30363d;
+  overflow: hidden;
   @media only screen and (max-width: 599px) {
     border-radius: 0;
     border-right: 0;
@@ -50,7 +51,7 @@ const BasePage = ({ children }: Props) => {
   const { page, description } = useCurrentPage();
 
   return (
-    <Container container item direction="column" alignItems="center">
+    <Container container item alignItems="center">
       <Header>
         <Mui.Typography
           fontSize={32}
@@ -70,7 +71,7 @@ const BasePage = ({ children }: Props) => {
         </Mui.Typography>
       </Header>
 
-      <Mui.Grid container justifyContent="center">
+      <Mui.Grid container justifyContent="center" marginY={3}>
         <List item xs={12} sm={11} md={10} lg={8} xl={6}>
           <ListHeader page={page} />
           <ListContainer>{children}</ListContainer>
