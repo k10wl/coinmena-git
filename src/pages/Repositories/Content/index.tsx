@@ -11,7 +11,6 @@ import ListButton from "@ui/ListButton";
 
 import RepositoryInterface from "@/components/interface/repository";
 
-
 const Container = styled(Mui.Grid)`
   padding: 15px;
   border-bottom: 1px solid #21262d;
@@ -53,6 +52,7 @@ const AuthorAvatar = styled.img`
 
 const RepoDetail = styled(Mui.Grid)`
   display: flex;
+  margin: 2px 0;
   padding-right: 16px;
 `;
 
@@ -80,7 +80,7 @@ const Content = ({ repositoryInfo }: Props) => {
   return (
     <Container container flexDirection="column">
       <Mui.Grid container justifyContent="space-between">
-        <Mui.Grid item>
+        <Mui.Grid item xs={10}>
           <RepoNameContainer container alignItems="flex-end">
             <Icon spacing={4} src={Repository} alt="repository" />
             <a href={url}>
@@ -88,9 +88,11 @@ const Content = ({ repositoryInfo }: Props) => {
             </a>
           </RepoNameContainer>
         </Mui.Grid>
-        <ListButton>
-          <Icon spacing={2} src={Star} alt="star" /> Star
-        </ListButton>
+        <Mui.Grid item >
+          <ListButton>
+            <Icon spacing={2} src={Star} alt="star" /> <span>Star</span>
+          </ListButton>
+        </Mui.Grid>
       </Mui.Grid>
       <RepoDetailsText marginY="4px" fontSize="12px" fontFamily="Segoe UI">
         {description}

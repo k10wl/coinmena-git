@@ -20,6 +20,12 @@ const ListButton = styled.button`
     background-color: #282e33;
     border-color: #6e7681;
   }
+
+  @media screen and (max-width: 728px) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export default ListButton;
