@@ -35,6 +35,7 @@ const Header = styled.div`
 const List = styled(Mui.Grid)`
   border-radius: 7px;
   border: 1px solid #30363d;
+  overflow: hidden;
   @media only screen and (max-width: 599px) {
     border-radius: 0;
     border-right: 0;
