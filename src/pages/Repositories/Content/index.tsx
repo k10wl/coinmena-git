@@ -11,7 +11,6 @@ import ListButton from "@ui/ListButton";
 
 import RepositoryInterface from "@/components/interface/repository";
 
-
 const Container = styled(Mui.Grid)`
   padding: 15px;
   border-bottom: 1px solid #21262d;
@@ -89,7 +88,7 @@ const Content = ({ repositoryInfo }: Props) => {
           </RepoNameContainer>
         </Mui.Grid>
         <ListButton>
-          <Icon spacing={2} src={Star} alt="star" /> Star
+          <Icon spacing={2} src={Star} alt="star" /> <span>Star</span>
         </ListButton>
       </Mui.Grid>
       <RepoDetailsText marginY="4px" fontSize="12px" fontFamily="Segoe UI">
