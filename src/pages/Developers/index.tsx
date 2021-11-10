@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import BasePage from "@/components/ui/BasePage";
 import Content from "./Content";
 
-const dummyData = {
-  rank: 1,
-  username: "mvdan",
-  name: "Daniel Martí",
-  url: "https://github.com/mvdan",
-  avatar: "https://avatars.githubusercontent.com/u/3576549?s=96&v=4",
-  since: "daily",
-  popularRepository: {
-    repositoryName: "sh",
-    description: "description description description description description description description description description description description description ",
-    url: "https://github.com/mvdan/sh",
-  },
-};
+import DeveloperInterface from "@/components/interface/developer";
 
-const Developers = () => (
-  <BasePage>
-    <Content developer={dummyData} />
-  </BasePage>
-);
+const Developers = () => {
+  const [developers, setDevelopers] = useState<DeveloperInterface[]>([]);
+  useEffect(() => {
+    var proxyUrl = "https://cors-anywhere.herokuapp.com/",
+      targetUrl = "https://gh-trending-api.herokuapp.com/developers";
+    fetch(proxyUrl + targetUrl)
+      .then((blob) => blob.json())
+      .then((data) => {
+        console.log('data:', data)
+        setDevelopers(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+  return (
+    <BasePage>
+      <>
+        {developers.map((developer) => (
+          <Content key={developer.username} developer={developer} />
+        ))}
+      </>
+    </BasePage>
+  );
+};
 
 export default Developers;
