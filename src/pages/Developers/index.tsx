@@ -15,6 +15,11 @@ const Developers = () => {
         {developers.map((developer) => (
           <Content key={developer.username} developer={developer} />
         ))}
+        {developers.length === 0 && (
+          <p style={{ color: "#fff" }}>
+            Something went wrong with API... check console for more info{" "}
+          </p>
+        )}
       </>
     </BasePage>
   );

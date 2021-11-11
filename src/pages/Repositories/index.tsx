@@ -15,6 +15,11 @@ const Repositories = () => {
         {repositories.map((repository) => (
           <Container key={repository.url} repositoryInfo={repository} />
         ))}
+        {repositories.length === 0 && (
+          <p style={{ color: "#fff" }}>
+            Something went wrong with API... check console for more info{" "}
+          </p>
+        )}
       </>
     </BasePage>
   );
