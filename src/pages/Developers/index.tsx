@@ -6,21 +6,29 @@ import Content from "./Content";
 
 import { RootState } from "@/store";
 
-const Developers = () => {
+interface Props {
+  error: string | boolean;
+}
+
+const Developers = ({ error }: Props) => {
   const { developers } = useSelector((state: RootState) => state);
 
   return (
     <BasePage>
-      <>
-        {developers.map((developer) => (
-          <Content key={developer.username} developer={developer} />
-        ))}
-        {developers.length === 0 && (
-          <p style={{ color: "#fff" }}>
-            Something went wrong with API... check console for more info{" "}
-          </p>
-        )}
-      </>
+      {!error ? (
+        <>
+          {developers.map((developer) => (
+            <Content key={developer.username} developer={developer} />
+          ))}
+          {developers.length === 0 && (
+            <p style={{ color: "#fff" }}>
+              Something went wrong with API... check console for more info
+            </p>
+          )}
+        </>
+      ) : (
+        <p style={{ color: "#fff" }}>{error}</p>
+      )}
     </BasePage>
   );
 };
