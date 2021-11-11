@@ -115,33 +115,35 @@ const Content = ({ developer }: Props) => {
       </Mui.Grid>
       <Mui.Grid item xs={8}>
         <Mui.Grid container>
-          <Mui.Grid item sm={9}>
-            <Mui.Grid container>
-              <Icon spacing={5} src={PopularRepo} alt="" />
+          {popularRepository.repositoryName && (
+            <Mui.Grid item sm={9}>
+              <Mui.Grid container>
+                <Icon spacing={5} src={PopularRepo} alt="" />
+                <RepoDescription
+                  marginY="5px"
+                  fontSize="12px"
+                  fontWeight={400}
+                  fontFamily="Segoe UI"
+                >
+                  POPULAR REPO
+                </RepoDescription>
+              </Mui.Grid>
+              <Mui.Grid>
+                <RepoLink href={popularRepository.url}>
+                  <Icon spacing={5} src={Repository} alt="" />{" "}
+                  {popularRepository.repositoryName}
+                </RepoLink>
+              </Mui.Grid>
               <RepoDescription
                 marginY="5px"
                 fontSize="12px"
                 fontWeight={400}
                 fontFamily="Segoe UI"
               >
-                POPULAR REPO
+                {popularRepository.description}
               </RepoDescription>
             </Mui.Grid>
-            <Mui.Grid>
-              <RepoLink href={popularRepository.url}>
-                <Icon spacing={5} src={Repository} alt="" />{" "}
-                {popularRepository.repositoryName}
-              </RepoLink>
-            </Mui.Grid>
-            <RepoDescription
-              marginY="5px"
-              fontSize="12px"
-              fontWeight={400}
-              fontFamily="Segoe UI"
-            >
-              {popularRepository.description}
-            </RepoDescription>
-          </Mui.Grid>
+          )}
           <Mui.Grid item xs={12} sm={3}>
             <Mui.Grid container justifyContent="flex-end">
               <ListButton>Follow</ListButton>
