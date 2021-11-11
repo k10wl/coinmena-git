@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 
-import Developers from "./pages/Developers";
-import Repositories from "./pages/Repositories";
+import App from "./App";
+
 import store from "./store";
 
 const queryClient = new QueryClient();
@@ -14,10 +14,7 @@ ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Repositories />} />
-          <Route path="/developers" element={<Developers />} />
-        </Routes>
+        <App/>
       </BrowserRouter>
     </Provider>
   </QueryClientProvider>,
