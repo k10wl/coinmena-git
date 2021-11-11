@@ -140,6 +140,7 @@ const Content = ({ developer }: Props) => {
                 fontWeight={400}
                 fontFamily="Segoe UI"
               >
+                {/* Instead of description API returns `null` */}
                 {popularRepository.description}
               </RepoDescription>
             </Mui.Grid>
