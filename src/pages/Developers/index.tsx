@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import BasePage from "@/components/ui/BasePage";
 import Content from "./Content";
 
-import DeveloperInterface from "@/components/interface/developer";
+import { RootState } from "@/store";
 
 const Developers = () => {
-  const [developers, setDevelopers] = useState<DeveloperInterface[]>([]);
-  useEffect(() => {
-    var proxyUrl = "https://cors-anywhere.herokuapp.com/",
-      targetUrl = "https://gh-trending-api.herokuapp.com/developers";
-    fetch(proxyUrl + targetUrl)
-      .then((blob) => blob.json())
-      .then((data) => {
-        console.log('data:', data)
-        setDevelopers(data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+  const { developers } = useSelector((state: RootState) => state);
+
   return (
     <BasePage>
       <>
         {developers.map((developer) => (
           <Content key={developer.username} developer={developer} />
         ))}
+        {developers.length === 0 && (
+          <p style={{ color: "#fff" }}>
+            Something went wrong with API... check console for more info{" "}
+          </p>
+        )}
       </>
     </BasePage>
   );
