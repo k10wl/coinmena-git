@@ -1,16 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Developers from "./pages/Developers";
-import Repositories from "./pages/Repositories";
+import App from "./App";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Repositories />} />
-      <Route path="/developers" element={<Developers />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+
+ReactDOM.render(<App />, document.getElementById("root"));
