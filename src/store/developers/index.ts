@@ -1,4 +1,3 @@
-import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import { createSlice } from "@reduxjs/toolkit";
 
 const repositories = createSlice({
