@@ -2,7 +2,7 @@
   "name": "coinmena-git",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://k10wl.github.io/coinmena-git",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -31,7 +31,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -b main",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
