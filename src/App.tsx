@@ -4,19 +4,22 @@ import useFetch from "@hooks/useFetch";
 
 import Developers from "./pages/Developers";
 import Repositories from "./pages/Repositories";
+import Loading from "@ui/Loading";
 
 const App = () => {
   const { isLoading, error } = useFetch();
 
-  if(isLoading) {
-    return <h1>LOADING...</h1>
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Repositories />} />
-      <Route path="/developers" element={<Developers />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Repositories />} />
+        <Route path="/developers" element={<Developers />} />
+      </Routes>
+    </>
   );
 };
 
