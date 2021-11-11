@@ -6,21 +6,29 @@ import Container from "./Content";
 
 import { RootState } from "@/store";
 
-const Repositories = () => {
+interface Props {
+  error: string | boolean;
+}
+
+const Repositories = ({ error }: Props) => {
   const { repositories } = useSelector((state: RootState) => state);
 
   return (
     <BasePage>
-      <>
-        {repositories.map((repository) => (
-          <Container key={repository.url} repositoryInfo={repository} />
-        ))}
-        {repositories.length === 0 && (
-          <p style={{ color: "#fff" }}>
-            Something went wrong with API... check console for more info{" "}
-          </p>
-        )}
-      </>
+      {!error ? (
+        <>
+          {repositories.map((repository) => (
+            <Container key={repository.url} repositoryInfo={repository} />
+          ))}
+          {repositories.length === 0 && (
+            <p style={{ color: "#fff" }}>
+              Something went wrong with API... check console for more info{" "}
+            </p>
+          )}
+        </>
+      ) : (
+        <p style={{ color: "#fff" }}>{error}</p>
+      )}
     </BasePage>
   );
 };
